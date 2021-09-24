@@ -1,1 +1,1 @@
-worker: python sage.py
+ECHO is on.
