@@ -6,7 +6,7 @@ intents = discord.Intents.all()
 sage = commands.Bot(command_prefix="!", intents= intents)
 
 if not discord.opus.is_loaded():
-    discord.opus.load_opus()
+    discord.opus.load_opus('opus')
 
 @sage.event
 async def on_ready():
