@@ -4,7 +4,9 @@ from discord_components import *
 
 intents = discord.Intents.all()
 sage = commands.Bot(command_prefix="!", intents= intents)
- 
+
+if not discord.opus.is_loaded():
+    discord.opus.load_opus('opus.dll')
 
 @sage.event
 async def on_ready():
