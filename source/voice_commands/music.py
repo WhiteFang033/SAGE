@@ -30,7 +30,7 @@ async def play_rkp(ctx):
 async def play_cmyn(ctx):
     voice_channel = ctx.author.voice
     voice= discord.utils.get(sage.voice_clients, guild=ctx.guild)
-    cmyn= discord.FFmpegPCMAudio('media/mp3/alpha/.mp3')
+    cmyn= discord.FFmpegPCMAudio('media/mp3/alpha/cmyn.mp3')
     voice.play(cmyn)
 
 @sage.command()

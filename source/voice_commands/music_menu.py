@@ -61,7 +61,7 @@ async def play(ctx):
         await ctx.invoke(sage.get_command("play_iml"))
         await msg.delete()
       elif resp.component.label == "Meet Me in Amsterdam":
-        await ctx.invoke(sage.get_command("play_lov"))
+        await ctx.invoke(sage.get_command("play_mma"))
         await msg.delete()
       else:
        return
