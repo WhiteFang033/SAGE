@@ -11,7 +11,7 @@ from source.fun_commands.chappal_code import *
 from source.fun_commands.thusky import *
 from source.fun_commands.yo_introduction import *
 from source.fun_commands.shoot import *
- ##jokes disabled
+from source.fun_commands.joke import *
 from source.fun_commands.dance import *
 
 #welcome
@@ -40,5 +40,6 @@ from source.utilities.roles import *
 from source.voice_commands.voice import *
 from source.voice_commands.music_menu import *
 from source.voice_commands.music import *
+from source.voice_commands.yt_play import *
 
 run()
