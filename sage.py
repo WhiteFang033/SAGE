@@ -39,7 +39,8 @@ from source.utilities.roles import *
 #voice
 from source.voice_commands.voice import *
 from source.voice_commands.music_menu import *
-from source.voice_commands.music import *
 from source.voice_commands.yt_play import *
+from source.voice_commands.music import *
+
 
 run()
