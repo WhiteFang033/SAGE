@@ -29,7 +29,7 @@ async def leave(ctx, error):
     message= error
     await ctx.reply(message)
 
-@sage.command(aliases=['p'])
+@sage.command(aliases=['pse'])
 async def pause(ctx):
     voice= discord.utils.get(sage.voice_clients, guild= ctx.guild)
     voice.pause()

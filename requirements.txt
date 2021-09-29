@@ -10,3 +10,4 @@ typing-extensions==3.10.0.0
 yarl==1.6.3
 PyNaCl
 requests
+youtube_dl
