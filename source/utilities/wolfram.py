@@ -1,6 +1,5 @@
 import discord
 from ..boot import *
-import wolframalpha
 import requests
 import json
 
