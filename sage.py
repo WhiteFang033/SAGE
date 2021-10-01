@@ -13,6 +13,7 @@ from source.fun_commands.yo_introduction import *
 from source.fun_commands.shoot import *
 from source.fun_commands.joke import *
 from source.fun_commands.dance import *
+#spam_dm disabled
 
 #welcome
 from source.welcome import *     #server  
@@ -34,6 +35,7 @@ from source.administration_commands.reply import *
 
 #utilites
 from source.utilities.roles import *
+from source.utilities.wolfram import *
 
 
 #voice
