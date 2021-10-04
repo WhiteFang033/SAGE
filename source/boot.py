@@ -7,7 +7,7 @@ sage = commands.Bot(command_prefix="!", intents= intents)
 
 @sage.event
 async def on_ready():
-    await sage.change_presence(status= discord.Status.idle, activity= discord.Game('Shinra Tensei'))
+    await sage.change_presence(status= discord.Status.dnd, activity= discord.Game('Shinra Tensei'))
     DiscordComponents(sage)
     print("Sage is Online.")
  
