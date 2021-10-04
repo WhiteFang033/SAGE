@@ -11,7 +11,7 @@ from source.fun_commands.chappal_code import *
 from source.fun_commands.thusky import *
 from source.fun_commands.yo_introduction import *
 from source.fun_commands.shoot import *
-from source.fun_commands.joke import *
+##jokes disabled
 from source.fun_commands.dance import *
 #spam_dm disabled
 

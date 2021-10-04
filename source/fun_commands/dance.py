@@ -4,7 +4,9 @@ from ..boot import *
 from discord.ext import commands
 
 @sage.command()
+@commands.has_any_role(830439735050371103,859475468343574558,830486598050119740)
 async def dance(ctx):
+
     await ctx.reply("LET'S START")
     await ctx.send("PLAY MUSIC 🎶")
     await asyncio.sleep(3)

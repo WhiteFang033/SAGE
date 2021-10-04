@@ -3,7 +3,7 @@ from discord.ext import commands
 from discord_components import *
 
 intents = discord.Intents.all()
-sage = commands.Bot(command_prefix="!", intents= intents)
+sage = commands.Bot(command_prefix="!", intents= intents, help_command=None)
 
 @sage.event
 async def on_ready():
