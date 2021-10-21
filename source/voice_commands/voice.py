@@ -13,9 +13,9 @@ async def connect(ctx):
     await voice_channel.channel.connect()
     voice= discord.utils.get(sage.voice_clients, guild=ctx.guild) 
     await asyncio.sleep(2)
-    voice.play(discord.FFmpegPCMAudio('media/mp3/alpha/connected.mp3'))
+    voice.play(discord.FFmpegPCMAudio('assets/mp3/alpha/connected.mp3'))
     await asyncio.sleep(2)
-    voice.play(discord.FFmpegPCMAudio('media/mp3/alpha/hello.mp3'))
+    voice.play(discord.FFmpegPCMAudio('assets/mp3/alpha/hello.mp3'))
 
     
 @sage.command()

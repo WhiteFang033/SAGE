@@ -2,10 +2,6 @@
 #boot file
 from source.boot import *
 
-#test_command
-from source.ping import *
-from source.administration_commands.ping import *
-
 #fun_commands
 from source.fun_commands.chappal_code import *
 from source.fun_commands.thusky import *
@@ -14,14 +10,15 @@ from source.fun_commands.shoot import *
 ##jokes disabled
 from source.fun_commands.dance import *
 #spam_dm disabled
+from source.fun_commands.hack import *
 
 #welcome
-from source.welcome import *     #server  
-from source.welcoming import *   #on_message
+from source.misc.welcome import *     #server  
+from source.misc.welcoming import *   #on_message
 
 
 #dm_messages
-from source.dm_messages import *
+from source.misc.dm_messages import *
 
 #administration_commands
 from source.administration_commands.clear_messages import *
@@ -44,5 +41,9 @@ from source.voice_commands.music_menu import *
 from source.voice_commands.yt_play import *
 from source.voice_commands.music import *
 
+
+#tests
+from source.tests.image import *
+from source.misc.ping import *
 
 run()

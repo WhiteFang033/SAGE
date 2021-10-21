@@ -5,7 +5,7 @@ from discord_components import *
 
 @sage.command()
 async def shoot(ctx, member: discord.Member):
-    msg= await ctx.send('Hands Up!'+member.mention, file=discord.File('././media/pictures/gun op.jpg'),components= [[Button(style= ButtonStyle.green, label="Shoot"),
+    msg= await ctx.send('Hands Up!'+member.mention, file=discord.File('././assets/pictures/gun op.jpg'),components= [[Button(style= ButtonStyle.green, label="Shoot"),
                                                                                              Button(style= ButtonStyle.blue, label="Blast!!!")]])
     def check(resp):
      return resp.user==ctx.author and resp.channel==ctx.channel

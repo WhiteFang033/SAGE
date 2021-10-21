@@ -1,5 +1,5 @@
 import discord
-from .boot import *
+from ..boot import *
 from discord.utils import *
 from discord.ext import commands
 

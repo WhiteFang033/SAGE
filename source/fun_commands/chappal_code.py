@@ -6,7 +6,7 @@ from discord.ext import commands
 @sage.listen("on_message")
 async def on_message(message):
     if "my slippers" in message.content:
-        await message.channel.send(message.author.mention+" Here are your slippers!", file= discord.File("././media/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
+        await message.channel.send(message.author.mention+" Here are your slippers!", file= discord.File("././assets/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
                                                                                                                                     Button(style= ButtonStyle.blue, label="Make a Chase")]])
         def check(resp):
          return message.author==resp.user and resp.channel==message.channel
@@ -25,7 +25,7 @@ async def on_message(message):
 
 
     if "meri chappal" in message.content:
-        await message.channel.send(message.author.mention+"Ye rahi aapki chappale!", file= discord.File("././media/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
+        await message.channel.send(message.author.mention+"Ye rahi aapki chappale!", file= discord.File("././assets/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
                                                                                                                                     Button(style= ButtonStyle.blue, label="Make a Chase")]])
         def check(resp):
          return message.author==resp.user and resp.channel==message.channel
@@ -42,7 +42,7 @@ async def on_message(message):
             return
    
     if "My slippers" in message.content:
-        await message.channel.send(message.author.mention+"Here are your slipper!", file= discord.File("././media/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
+        await message.channel.send(message.author.mention+"Here are your slipper!", file= discord.File("././assets/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
                                                                                                                                     Button(style= ButtonStyle.blue, label="Make a Chase")]])
         def check(resp):
          return message.author==resp.user and resp.channel==message.channel
@@ -59,7 +59,7 @@ async def on_message(message):
             return
     
     if "meri chappale" in message.content:
-        await message.channel.send(message.author.mention+"Ye rahi aapki chappale!", file= discord.File("././media/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
+        await message.channel.send(message.author.mention+"Ye rahi aapki chappale!", file= discord.File("././assets/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
                                                                                                                                     Button(style= ButtonStyle.blue, label="Make a Chase")]])
         def check(resp):
          return message.author==resp.user and resp.channel==message.channel
@@ -76,7 +76,7 @@ async def on_message(message):
             return
     
     if "chappal kaha" in message.content:
-        await message.channel.send(message.author.mention+"Ye rahi aapki chappale!", file= discord.File("././media/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
+        await message.channel.send(message.author.mention+"Ye rahi aapki chappale!", file= discord.File("././assets/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
                                                                                                                                     Button(style= ButtonStyle.blue, label="Make a Chase")]])
         def check(resp):
          return message.author==resp.user and resp.channel==message.channel
@@ -93,7 +93,7 @@ async def on_message(message):
             return
       
     if "Chappal kaha" in message.content:
-        await message.channel.send(message.author.mention+"Ye rahi aapki chappale!", file= discord.File("././media/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
+        await message.channel.send(message.author.mention+"Ye rahi aapki chappale!", file= discord.File("././assets/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
                                                                                                                                     Button(style= ButtonStyle.blue, label="Make a Chase")]])
         def check(resp):
          return message.author==resp.user and resp.channel==message.channel
@@ -110,7 +110,7 @@ async def on_message(message):
             return
         
     if "Chappale kaha" in message.content:
-        await message.channel.send(message.author.mention+"Ye rahi Aapi Chappale!", file= discord.File("././media/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
+        await message.channel.send(message.author.mention+"Ye rahi Aapi Chappale!", file= discord.File("././assets/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
                                                                                                                                     Button(style= ButtonStyle.blue, label="Make a Chase")]])
         def check(resp):
          return message.author==resp.user and resp.channel==message.channel
@@ -127,7 +127,7 @@ async def on_message(message):
             return
         
     if "chappale kaha" in message.content:
-        await message.channel.send(message.author.mention+" Ye rahi aapki chappale!", file= discord.File("././media/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
+        await message.channel.send(message.author.mention+" Ye rahi aapki chappale!", file= discord.File("././assets/pictures/chappal.png"),components= [[Button(style= ButtonStyle.green, label="Slipper Smack"),
                                                                                                                                     Button(style= ButtonStyle.blue, label="Make a Chase")]])
         def check(resp):
          return message.author==resp.user and resp.channel==message.channel
