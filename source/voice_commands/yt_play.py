@@ -1,4 +1,5 @@
 import discord
+from .voice import *
 from discord.ext.commands.core import check
 from ..boot import *
 import requests
@@ -10,7 +11,8 @@ import asyncio
 
 youtube_dl.utils.bug_reports_message = lambda: ''
 
-
+msg= ''
+status=''
 ytdl_format_options = {
     'format': 'bestaudio/best',
     'outtmpl': '%(extractor)s-%(id)s-%(title)s.%(ext)s',
@@ -74,39 +76,58 @@ async def search_music(ctx,*,keyword):
        }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
+    
+    
     data = json.loads(response.text)
     items= data["items"]
     link = items[0]["url"]
     title = items[0]["title"]
+    thumbnail = items[0]["bestThumbnail"]["url"]
+    duration = items[1]["duration"]
 
     voice= discord.utils.get(sage.voice_clients, guild= ctx.guild)
 
+    embed = discord.Embed(title=f"Playing {title}", description = f"**Now Playing- **{title} \n **Duration- **{duration} ", color=0x2B9CFF)
+    embed.set_image(url=thumbnail)
 
-    msg= await ctx.reply(f"Is this the song you want to play?:`` {title}`` \n {link}", components =([[Button(style=ButtonStyle.green, label="✅Yes"),
-                                                                     Button(style=ButtonStyle.red, label="❌No")]]
+
+    msg= await ctx.reply(embed = embed, components =([[Button(style=ButtonStyle.green, label="⏸️Pause"),
+                                                                     Button(style=ButtonStyle.green, label="▶️Resume"),
+                                                                     Button(style=ButtonStyle.red, label="⏯️Stop")]]
                                                                      ))
-    def check(resp):
-        return resp.user==ctx.author and resp.channel==ctx.channel
 
-    resp= await sage.wait_for("button_click", check=check)
+    status= await ctx.send("``Status: ⏯️Playing``")
 
-    if resp.component.label == "✅Yes":
-      async with ctx.typing():
-        await msg.delete()
+    async with ctx.typing():
         player = await YTDLSource.from_url(link)
         voice.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
-        await ctx.send('``🎶Now playing: {}``'.format(player.title))
-        
-    
-    elif resp.component.label == "❌No":
-        await msg.delete()
-        await ctx.reply("``Try mentioning more keywords.\nSorry for Inconvenience, we will be improving soon!``")
+
+    def check(resp):
+        return resp.channel==ctx.channel
+    while(True):
+     resp= await sage.wait_for("button_click", check=check)
+
+
+     if resp.component.label == "⏸️Pause":
+        await ctx.invoke(sage.get_command("pause"))
+        await status.edit("``Status: ⏸️Paused``")
+ 
+     elif resp.component.label == "▶️Resume":
+      await ctx.invoke(sage.get_command("resume"))
+      await status.edit("``Status: ▶️Resumed``")
+
+     
+     elif resp.component.label == "⏯️Stop":
+       await ctx.invoke(sage.get_command("stop"))
+       await status.edit("``Status: ⏯️Stopped``")
+       await msg.delete()
+       asyncio.sleep(2)
+       await status.delete()
 
 @search_music.error
 async def search_music(ctx,error):
     message = error
     await ctx.reply(message)
 
-    
 
      
