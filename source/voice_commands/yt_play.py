@@ -1,3 +1,4 @@
+import asyncio
 import discord
 from .voice import *
 from discord.ext.commands.core import check
@@ -96,7 +97,7 @@ async def search_music(ctx,*,keyword):
                                                                      Button(style=ButtonStyle.red, label="⏯️Stop")]]
                                                                      ))
 
-    status= await ctx.send("``Status: ⏯️Playing``")
+    status= await ctx.send("``Status: 🎶Playing``")
 
     async with ctx.typing():
         player = await YTDLSource.from_url(link)
@@ -114,7 +115,7 @@ async def search_music(ctx,*,keyword):
  
      elif resp.component.label == "▶️Resume":
       await ctx.invoke(sage.get_command("resume"))
-      await status.edit("``Status: ▶️Resumed``")
+      await status.edit("``Status: 🎵Playing``")
 
      
      elif resp.component.label == "⏯️Stop":
