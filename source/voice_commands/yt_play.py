@@ -1,3 +1,4 @@
+import datetime
 import asyncio
 import discord
 from .voice import *
@@ -64,7 +65,8 @@ class YTDLSource(discord.PCMVolumeTransformer):
 
 
 @sage.command(aliases= ['p'])
-async def search_music(ctx,*,keyword):
+async def play_music(ctx,*,keyword):
+     
     url = "https://youtube-search-results.p.rapidapi.com/youtube-search/"
     
     print(keyword)
@@ -72,19 +74,29 @@ async def search_music(ctx,*,keyword):
     querystring = {"q":keyword}
 
     headers = {
-    'x-rapidapi-host': "youtube-search-results.p.rapidapi.com",
-    'x-rapidapi-key': "a7202c6505mshac4812d4e1434b3p1e7c3bjsn26341f464af9"
+     'x-rapidapi-host': "youtube-search-results.p.rapidapi.com",
+     'x-rapidapi-key': "a7202c6505mshac4812d4e1434b3p1e7c3bjsn26341f464af9"
        }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
-    
     
     data = json.loads(response.text)
     items= data["items"]
     link = items[0]["url"]
     title = items[0]["title"]
     thumbnail = items[0]["bestThumbnail"]["url"]
-    duration = items[1]["duration"]
+    duration = items[0]["duration"]
+
+    if len(duration)<=4:
+      str = "00:"+duration
+  
+    print(str)
+    h,m,s = str.split(':')
+
+
+    time = int(h)*3600 + int(m)*60 + int(s)
+
+    print("time= "+time+ "seconds")
 
     voice= discord.utils.get(sage.voice_clients, guild= ctx.guild)
 
@@ -97,38 +109,70 @@ async def search_music(ctx,*,keyword):
                                                                      Button(style=ButtonStyle.red, label="⏯️Stop")]]
                                                                      ))
 
-    status= await ctx.send("``Status: 🎶Playing``")
+
 
     async with ctx.typing():
         player = await YTDLSource.from_url(link)
         voice.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
 
+    status= await ctx.send("``Status: 🎶Playing``")
+    progress= await ctx.send(f"``0:00:00/00:{duration}``")
+
+    
+    
+    
+     
+
     def check(resp):
-        return resp.channel==ctx.channel
+      return resp.channel==ctx.channel
+     
     while(True):
-     resp= await sage.wait_for("button_click", check=check)
 
-
-     if resp.component.label == "⏸️Pause":
-        await ctx.invoke(sage.get_command("pause"))
-        await status.edit("``Status: ⏸️Paused``")
- 
-     elif resp.component.label == "▶️Resume":
-      await ctx.invoke(sage.get_command("resume"))
-      await status.edit("``Status: 🎵Playing``")
+      resp= await sage.wait_for("button_click", check=check)
 
      
-     elif resp.component.label == "⏯️Stop":
-       await ctx.invoke(sage.get_command("stop"))
-       await status.edit("``Status: ⏯️Stopped``")
-       await msg.delete()
-       asyncio.sleep(2)
-       await status.delete()
 
-@search_music.error
+      if resp.component.label == "⏸️Pause":
+          await ctx.invoke(sage.get_command("pause"))
+          await status.edit("``Status: ⏸️Paused``")
+ 
+      elif resp.component.label == "▶️Resume":
+          await ctx.invoke(sage.get_command("resume"))
+          await status.edit("``Status: 🎵Playing``")
+
+     
+      elif resp.component.label == "⏯️Stop":
+          await ctx.invoke(sage.get_command("stop"))
+          await status.edit("``Status: ⏯️Stopped``")
+          await msg.delete()
+          asyncio.sleep(1)
+          await status.delete()
+
+     
+ 
+
+@play_music.error
 async def search_music(ctx,error):
     message = error
     await ctx.reply(message)
 
+
+@sage.command()
+async def progress(ctx, run, duration, time, start):
+   progress= await ctx.send(f"``0:00:00/00:{duration}``")
+   i = start
+   if run == True:
+    
+     for i in range(time+1): 
+      seconds = datetime.timedelta(0,i)
+      await progress.edit(f"``{seconds}/0:{duration}``")
+      await asyncio.sleep(1)
+      last = i
+     await progress.edit("``Finished``")
+     await asyncio.sleep(2)
+     await progress.delete()
+  
+
+    
 
      
