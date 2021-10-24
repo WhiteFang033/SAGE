@@ -96,7 +96,7 @@ async def play_music(ctx,*,keyword):
 
     time = int(h)*3600 + int(m)*60 + int(s)
 
-    print("time= "+time+ "seconds")
+    print(f"time= {time} seconds")
 
     voice= discord.utils.get(sage.voice_clients, guild= ctx.guild)
 
