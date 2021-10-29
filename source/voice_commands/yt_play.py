@@ -81,11 +81,11 @@ async def play_music(ctx,*,keyword):
     response = requests.request("GET", url, headers=headers, params=querystring)
     
     data = json.loads(response.text)
-    items= data["items"]
-    link = items[0]["url"]
-    title = items[0]["title"]
-    thumbnail = items[0]["bestThumbnail"]["url"]
-    duration = items[0]["duration"]
+    items= data["items"] 
+    link = items[0]["url"] 
+    title = items[0]["title"] 
+    thumbnail = items[0]["bestThumbnail"]["url"] 
+    duration = items[0]["duration"] 
 
     if len(duration)<=4:
       str = "00:"+duration
@@ -100,7 +100,7 @@ async def play_music(ctx,*,keyword):
 
     voice= discord.utils.get(sage.voice_clients, guild= ctx.guild)
 
-    embed = discord.Embed(title=f"Playing {title}", description = f"**Now Playing- **{title} \n **Duration- **{duration} ", color=0x2B9CFF)
+    embed = discord.Embed(title=f"Playing", description = f"**Now Playing- **{title} \n **Duration- **{duration} ", color=0x2B9CFF)
     embed.set_image(url=thumbnail)
 
 
@@ -116,7 +116,6 @@ async def play_music(ctx,*,keyword):
         voice.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
 
     status= await ctx.send("``Status: 🎶Playing``")
-    progress= await ctx.send(f"``0:00:00/00:{duration}``")
 
     
     
