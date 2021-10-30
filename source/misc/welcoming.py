@@ -21,7 +21,7 @@ async def on_message(message):
            await asyncio.sleep(2)
            async with message.channel.typing():
               await message.channel.send("So what?")
-              asyncio.sleep(2)
+              await asyncio.sleep(2)
               await message.reply("Everyone already know that you are here. -_-")
       else:
        await message.reply(f'Welcome Back {message.author.name}!')
