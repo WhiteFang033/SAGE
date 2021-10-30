@@ -18,10 +18,10 @@ async def on_message(message):
        if count == 3:
            count = 0
            await message.reply("...")
-           asyncio.sleep(0.7)
+           await asyncio.sleep(2)
            async with message.channel.typing():
-              await message.reply("So what?")
-              asyncio.sleep(1.5)
+              await message.send("So what?")
+              asyncio.sleep(3)
               await message.reply("Everyone already know that you are here. -_-")
       else:
        await message.reply(f'Welcome Back {message.author.name}!')
