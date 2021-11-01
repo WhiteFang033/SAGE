@@ -119,6 +119,6 @@ async def play_secret_command_pro_max(ctx):
          return                         
 
 @play_secret_command_pro_max.error
-async def play(ctx,error):
+async def play_secret_command_pro_max(ctx,error):
   message = error
   await ctx.reply(message)
