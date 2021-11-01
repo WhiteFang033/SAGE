@@ -4,7 +4,7 @@ from .music import *
 from discord.ext import commands
 
 @sage.command()
-async def play_secret_command_pro_max(ctx):
+async def playsecretcommandpromax(ctx):
     lang_opt= await ctx.send("**🎶Choose Language:**", 
                     components=[[Button(style= ButtonStyle.green ,label="English🎶"),
                                  Button(style= ButtonStyle.green ,label="Hindi🎶"),
@@ -118,7 +118,7 @@ async def play_secret_command_pro_max(ctx):
         else:
          return                         
 
-@play_secret_command_pro_max.error
-async def play_secret_command_pro_max(ctx,error):
+@playsecretcommandpromax.error
+async def playsecretcommandpromax(ctx,error):
   message = error
   await ctx.reply(message)
