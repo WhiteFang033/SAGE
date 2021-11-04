@@ -41,5 +41,15 @@ async def on_message(message):
    
    if "i m back" in message.content:
        await message.reply(f'Welcome Back {message.author.name}!')
-   
+   if "i m bacc" in message.content:
+       await message.reply(f'Welcome Back {message.author.name}!')
+   if "im bacc" in message.content:
+       await message.reply(f'Welcome Back {message.author.name}!.I win <:creepy:830855695959720057>')
+   if "i m bac||c||" in message.content:
+       await message.reply(f'Welcome Back {message.author.name}!I win <:creepy:830855695959720057>')
+   if "m bac||c||" in message.content:
+       await message.reply(f'Welcome Back {message.author.name}!I win <:creepy:830855695959720057>')
+   if "m bac||k||" in message.content:
+       await message.reply(f'Welcome Back {message.author.name}!I win <:creepy:830855695959720057>')
+
     

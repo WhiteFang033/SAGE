@@ -8,7 +8,7 @@ import requests
 import json
 import youtube_dl 
 import asyncio
-
+import threading
 
 
 youtube_dl.utils.bug_reports_message = lambda: ''
@@ -116,36 +116,33 @@ async def play_music(ctx,*,keyword):
         voice.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
 
     status= await ctx.send("``Status: 🎶Playing``")
-
-    
-    
-    
-     
-
     def check(resp):
-      return resp.channel==ctx.channel
+       return resp.channel==ctx.channel
      
     while(True):
 
-      resp= await sage.wait_for("button_click", check=check)
+       resp= await sage.wait_for("button_click", check=check)
 
      
 
-      if resp.component.label == "⏸️Pause":
+       if resp.component.label == "⏸️Pause":
           await ctx.invoke(sage.get_command("pause"))
           await status.edit("``Status: ⏸️Paused``")
  
-      elif resp.component.label == "▶️Resume":
+       elif resp.component.label == "▶️Resume":
           await ctx.invoke(sage.get_command("resume"))
           await status.edit("``Status: 🎵Playing``")
 
      
-      elif resp.component.label == "⏯️Stop":
+       elif resp.component.label == "⏯️Stop":
           await ctx.invoke(sage.get_command("stop"))
           await status.edit("``Status: ⏯️Stopped``")
           await msg.delete()
           asyncio.sleep(1)
           await status.delete()
+    
+
+     
 
      
  
@@ -156,11 +153,8 @@ async def search_music(ctx,error):
     await ctx.reply(message)
 
 
-@sage.command()
-async def progress(ctx, run, duration, time, start):
-   progress= await ctx.send(f"``0:00:00/00:{duration}``")
-   i = start
-   if run == True:
+async def progress(ctx, duration, time):
+     progress= await ctx.send(f"``0:00:00/0:{duration}``")
     
      for i in range(time+1): 
       seconds = datetime.timedelta(0,i)
