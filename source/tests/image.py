@@ -5,21 +5,25 @@ import requests
 from io import BytesIO
 
 @sage.command()
-async def show(ctx):
+async def flip(ctx):
+    url = ctx.message.attachments[0].url
+    response = requests.get(url)
+    img = Image.open(BytesIO(response.content))
 
-    member = ctx.author
+    fimg = img.transpose(Image.FLIP_LEFT_RIGHT)
 
-    avatar =member.avatar_url
-    response =requests.get(avatar)
+    fimg.save("flipped.png")
+    await ctx.send(file=discord.File("flipped.png"))
 
-    ava= Image.open(BytesIO(response.content))
-    text = member.name
+@sage.command()
+async def rotate(ctx):
+    print(ctx.message.attachments)
+    url = ctx.message.attachments[0].url
+    
+    response = requests.get(url)
+    img = Image.open(BytesIO(response.content))
 
-    fw= Image.new("RGB",(600,300),color="black")
-    d= ImageDraw.Draw(fw)
-    font = ImageFont.truetype("../../assets/fonts/arial.ttf",50)
-    d.text((300,150),text,fill=(256,256,256), font= font)
-    fw.save("black.png")
-    await ctx.reply(file= discord.File(ava))
+    fimg = img.transpose(Image.ROTATE_90)
 
-    os.remove("black.png")
+    fimg.save("flipped.png")
+    await ctx.send(file=discord.File("flipped.png"))
