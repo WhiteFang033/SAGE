@@ -27,3 +27,4 @@ async def rotate(ctx):
 
     fimg.save("flipped.png")
     await ctx.send(file=discord.File("flipped.png"))
+    os.remove("../../flipped.png")
