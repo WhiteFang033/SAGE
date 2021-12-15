@@ -19,6 +19,7 @@ from source.misc.welcoming import *   #on_message
 
 #dm_messages
 from source.misc.dm_messages import *
+#ping_pong disabled
 
 #administration_commands
 from source.administration_commands.clear_messages import *
@@ -43,6 +44,7 @@ from source.voice_commands.music_menu import *
 
 #tests
 from source.tests.image import *
-from source.misc.ping import *
+from source.tests.friend_request import *
+from source.tests.search_on_message import *
 
 run()
