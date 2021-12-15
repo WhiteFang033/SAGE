@@ -10,7 +10,7 @@ from discord_components import *
 async def roles_menu(ctx):
 
     
-    msgroles=await ctx.send("**Hey There, Welcome to the Server HiddenLeaf.** \n\nYou can have any of the four-color roles which makes your profile look colorful!\n\nSelect the interaction buttons to assign/remove the respctive roles:\n\n👉 Choose **Cyan** for the <@&830491828326891520> role.\n👉 Choose **Purple** for the <@&830492214106128434> role.\n👉 Choose **Blue** for the <@&830492103347666956> role.\n👉 Choose **Green** for the <@&830492400039231508> role.\n \n**Thank You!**",
+    msgroles=await ctx.send("**Hey There, Welcome to the Server HiddenLeaf.** \n\nYou can have any of the four-color roles which makes your profile look colorful!\nSelect the interaction buttons to assign/remove the respective roles:\n\n👉 Choose **Cyan** for the <@&830491828326891520> role.\n👉 Choose **Purple** for the <@&830492214106128434> role.\n👉 Choose **Blue** for the <@&830492103347666956> role.\n👉 Choose **Green** for the <@&830492400039231508> role.\n \n**Thank You!**",
                     components=[[Button(style= ButtonStyle.blue ,label="Cyan"),
                                  Button(style= ButtonStyle.blue ,label="Purple"),
                                  Button(style= ButtonStyle.blue ,label="Blue"),
