@@ -34,6 +34,7 @@ from source.administration_commands.reply import *
 #utilites
 from source.utilities.roles import *
 from source.utilities.wolfram import *
+from source.utilities.message_edit import *
 
 
 #voice
