@@ -8,7 +8,7 @@ replies = ['I have no idea about that. :confused:',"I do not know that yet :no_m
 
 @sage.listen("on_message")
 async def on_message(message):
-    if "Sage" in message.content or "sage" in message.content and "?" in message.content:
+    if ("Sage" in message.content or "sage" in message.content) and "?" in message.content:
         content = message.content
         query = content.replace("Sage,","").replace("sage,","").replace("sage?","").replace("Sage?","")
 
