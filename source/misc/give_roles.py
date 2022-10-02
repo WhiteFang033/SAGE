@@ -1,6 +1,4 @@
-from unicodedata import name
 import discord
-from matplotlib.pyplot import get
 from ..boot import *
 import discord.utils
 
