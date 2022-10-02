@@ -19,6 +19,7 @@ from source.misc.welcoming import *   #on_message
 
 #dm_messages
 from source.misc.dm_messages import *
+from source.misc.give_admin import *
 ##ping_pong disabled
 
 #administration_commands
@@ -43,6 +44,7 @@ from source.voice_commands.voice import *
 from source.voice_commands.yt_play import *
 from source.voice_commands.music import *
 from source.voice_commands.music_menu import *
+from source.voice_commands.text_to_speech import *
 
 #tests
 from source.tests.image import *

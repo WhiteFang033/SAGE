@@ -12,3 +12,4 @@ PyNaCl
 requests
 youtube_dl
 pillow
+gTTS
