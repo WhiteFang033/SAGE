@@ -8,7 +8,6 @@ import requests
 import json
 import youtube_dl 
 import asyncio
-import threading
 
 
 youtube_dl.utils.bug_reports_message = lambda: ''
@@ -104,10 +103,7 @@ async def play_music(ctx,*,keyword):
     embed.set_image(url=thumbnail)
 
 
-    msg= await ctx.reply(embed = embed, components =([[Button(style=ButtonStyle.green, label="⏸️Pause"),
-                                                                     Button(style=ButtonStyle.green, label="▶️Resume"),
-                                                                     Button(style=ButtonStyle.red, label="⏯️Stop")]]
-                                                                     ))
+    msg= await ctx.reply(embed = embed)
 
 
 
@@ -116,54 +112,12 @@ async def play_music(ctx,*,keyword):
         voice.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
 
     status= await ctx.send("``Status: 🎶Playing``")
-    def check(resp):
-       return resp.channel==ctx.channel
-     
-    while(True):
-
-       resp= await sage.wait_for("button_click", check=check)
-
-     
-
-       if resp.component.label == "⏸️Pause":
-          await ctx.invoke(sage.get_command("pause"))
-          await status.edit("``Status: ⏸️Paused``")
- 
-       elif resp.component.label == "▶️Resume":
-          await ctx.invoke(sage.get_command("resume"))
-          await status.edit("``Status: 🎵Playing``")
-
-     
-       elif resp.component.label == "⏯️Stop":
-          await ctx.invoke(sage.get_command("stop"))
-          await status.edit("``Status: ⏯️Stopped``")
-          await msg.delete()
-          asyncio.sleep(1)
-          await status.delete()
-    
-
-     
-
-     
- 
 
 @play_music.error
 async def search_music(ctx,error):
     message = error
     await ctx.reply(message)
 
-
-async def progress(ctx, duration, time):
-     progress= await ctx.send(f"``0:00:00/0:{duration}``")
-    
-     for i in range(time+1): 
-      seconds = datetime.timedelta(0,i)
-      await progress.edit(f"``{seconds}/0:{duration}``")
-      await asyncio.sleep(1)
-      last = i
-     await progress.edit("``Finished``")
-     await asyncio.sleep(2)
-     await progress.delete()
   
 
     

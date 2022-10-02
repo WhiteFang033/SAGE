@@ -33,7 +33,7 @@ from source.administration_commands.show_mod_commands import *
 from source.administration_commands.reply import *
 
 #utilites
-from source.utilities.roles import *
+#from source.utilities.roles import *
 from source.utilities.wolfram import *
 from source.utilities.message_edit import *
 from source.utilities.avatar import *
@@ -43,7 +43,7 @@ from source.utilities.avatar import *
 from source.voice_commands.voice import *
 from source.voice_commands.yt_play import *
 from source.voice_commands.music import *
-from source.voice_commands.music_menu import *
+#from source.voice_commands.music_menu import *
 from source.voice_commands.text_to_speech import *
 
 #tests

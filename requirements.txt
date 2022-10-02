@@ -11,4 +11,3 @@ PyNaCl
 requests
 youtube_dl
 pillow
-discord-components
