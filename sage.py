@@ -19,7 +19,7 @@ from source.misc.welcoming import *   #on_message
 
 #dm_messages
 from source.misc.dm_messages import *
-from source.misc.give_admin import *
+from source.misc.give_roles import *
 ##ping_pong disabled
 
 #administration_commands
