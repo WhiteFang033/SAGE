@@ -2,15 +2,13 @@ import discord
 from ..boot import *
 import requests
 import json
-
-
-app_id ="VUVX4Q-47T2W8PVHV"
+import tokens
 
 
 @sage.command(aliases=['w'])
 async def wolf(ctx,*, query):
 
-    url= f"https://api.wolframalpha.com/v1/result?appid={app_id}&i={query}%3F"
+    url= f"https://api.wolframalpha.com/v1/result?appid={tokens.app_id}&i={query}%3F"
 
     response = requests.get(url)
     print(response.text)
@@ -24,7 +22,7 @@ async def wolf(ctx, error):
 @sage.command(aliases=['wi'])
 async def wolf_image(ctx,*, query):
 
-    url= f"http://api.wolframalpha.com/v2/query?appid={app_id}&input={query}&includepodid=Image:PeopleData&output=json"
+    url= f"http://api.wolframalpha.com/v2/query?appid={tokens.app_id}&input={query}&includepodid=Image:PeopleData&output=json"
 
     response = requests.get(url)
     r_json = json.loads(response.text)

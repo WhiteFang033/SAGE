@@ -5,6 +5,7 @@ from discord.ext import commands
 import requests
 import json
 import typing
+import tokens
 
 @sage.command()
 async def joke(ctx):
@@ -12,7 +13,7 @@ async def joke(ctx):
 
     headers = {
     'x-rapidapi-host': "dad-jokes.p.rapidapi.com",
-    'x-rapidapi-key': "a7202c6505mshac4812d4e1434b3p1e7c3bjsn26341f464af9"
+    'x-rapidapi-key': tokens.rapid_api_key 
     }
 
     response = requests.request("GET", url, headers=headers)
